@@ -22,7 +22,7 @@ public class GraphVisualizer extends JFrame {
 
     public GraphVisualizer() {
         setTitle("Snake & Ladder: Final Node Scoring");
-        setSize(1100, 850);
+        setSize(1100, 825);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -41,9 +41,9 @@ public class GraphVisualizer extends JFrame {
         ladders = new ArrayList<>();
         ladders.add(new Ladder(2, 21));
         ladders.add(new Ladder(6, 29));
-        ladders.add(new Ladder(14, 25));
+        ladders.add(new Ladder(14, 55));
         ladders.add(new Ladder(35, 48));
-        ladders.add(new Ladder(52, 62));
+
 
         Random rand = new Random();
         int rStart = rand.nextInt(50);
@@ -80,6 +80,10 @@ public class GraphVisualizer extends JFrame {
         panel.add(playerSpinner);
 
         JButton newGameButton = new JButton("New Game");
+        newGameButton.setFont(new Font("Arial", Font.BOLD, 14));
+        newGameButton.setBackground(new Color(50, 150, 250));
+        newGameButton.setForeground(Color.BLACK);
+        newGameButton.setFocusPainted(false);
         newGameButton.addActionListener(e -> {
             int numPlayers = (Integer) playerSpinner.getValue();
             gameManager.resetGame(numPlayers);
@@ -91,7 +95,7 @@ public class GraphVisualizer extends JFrame {
         JButton rollDiceButton = new JButton("Roll Dice");
         rollDiceButton.setFont(new Font("Arial", Font.BOLD, 14));
         rollDiceButton.setBackground(new Color(50, 150, 250));
-        rollDiceButton.setForeground(Color.WHITE);
+        rollDiceButton.setForeground(Color.BLACK);
         rollDiceButton.setFocusPainted(false);
         rollDiceButton.addActionListener(e -> {
             SoundManager.playDiceSound();
